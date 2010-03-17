@@ -1,0 +1,902 @@
+ /*
+
+	(c) 2006 Pau Santesmasses  <firstname at lastname.net>
+		 and Reed Morse <firstname.lastname at gmail.com>
+
+*/
+
+html,body {
+  height:100%;
+  width:800px;
+  margin:0;
+  padding:0;
+
+}
+
+body {
+  background:#8e8e8e;
+  font-family:Helvetica,Arial,sans-serif;
+  font-size: 81.5%; /* Resets 1em to 13px. (change to 10px?) */
+  background-image:url(shorty_background.png);
+  background-repeat:repeat-x;
+  line-height:1.5em;
+}
+
+noscript {
+	color:white;
+}
+
+a{
+  color:red;
+  text-decoration:none;
+}
+
+ul{
+  margin:0 0 0 1em;
+  padding:0;
+}
+#board .notice{
+    color: red;
+    margin:10px;
+}
+
+#start p {
+    color: white;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+  border:2px solid;
+  border-width:2px 1px 1px;
+  border-color: #AAA #BBB #DDD #BBB;
+  font-family:Helvetica, Arial, sans-serif;
+  font-size:1em;
+  color:#333;
+  padding:3px 1px;
+}
+
+select {
+  padding:1px;
+}
+
+#install-form label {
+  width: 100px;
+  display:block;
+  float:left;
+  clear:left;
+  display:inline;
+}
+#install-form input {
+  float:left;
+  display:inline;
+  margin-bottom:5px;
+}
+
+
+
+
+#menu a,
+#tabs a,
+th a{
+  -moz-outline:none !important;
+}
+
+#brand {
+  position:fixed;
+  width:97px;
+  height:100%;
+  margin-left:10px;
+  background:#bbb;
+  text-indent:-3000px;
+  background-image:url(shorty_logo.png);
+  background-repeat:repeat-x;
+}
+
+#menu {
+  position:fixed;
+  top:50px;
+  left:10px;
+  color:white;
+  font-weight:bold;
+  line-height:1em;
+  z-index:10;
+}
+
+#menu ul {
+  width:97px;
+  margin:0;
+  padding:0;
+  list-style:none;
+  border-top:5px solid white;
+}
+
+#menu a{
+  color:inherit;
+  display: block;
+  padding:6px 8px 8px;
+}
+
+#menu .selected {
+  color:red;
+}
+
+#menu li {
+  border-bottom:1px solid white;
+  display:none;
+}
+
+#menu li#loginOption {
+  display:block;
+}
+
+#beta {
+  position:fixed;
+  top: 222px;
+  left:10px;
+  color:white;
+  font-weight:bold;
+  line-height:1em;
+  z-index:10;
+}
+
+#beta li {
+  border-bottom:1px solid white;
+}
+
+#beta a {
+  color: inherit;
+  padding:6px 8px 8px;
+  display: block;
+}
+
+#beta ul {
+  width:97px;
+  margin:0;
+  padding:0;
+  list-style:none;
+  border-top: 1px solid white;
+}
+
+
+#board {
+  width:620px;
+  float:left;
+  clear:right;
+  margin-top:50px;
+  margin-left:120px;
+  border-top:5px solid white;
+  position: relative;
+}
+
+#main-spinner{
+  position:absolute;
+  right:0;
+  top:40px;
+  padding:10px;
+  padding-bottom:0;
+  display:none;
+}
+
+#legal{
+  height:60px;
+  padding:10px;
+  float:left;
+  text-align:right;
+  width: 725px;
+  color: #D4D4D4;
+}
+
+#legal a{
+  color:white;
+}
+
+/*WELCOME*/
+#welcome {
+  margin-left:105px;
+  margin-top:45px;
+  width:410px;
+}
+
+#welcome h1{
+  margin-top:10px;
+  font-size:3em;
+  font-family:georgia,serif;
+  font-weight:normal;
+  color:white;
+}
+
+#welcome p{
+  width:400px;
+  font-size:1.1em;
+  color:white;
+}
+
+
+#news{
+  color:white;
+  margin: 50px 0 0 105px;
+  width:410px;
+}
+
+#news p,
+#news li,
+#news dt,
+#versionHistory p,
+#versionHistory li,
+#versionHistory dt{
+  color: #D4D4D4;
+}
+
+#news .releaseTitle,
+#versionHistory .releaseTitle{
+  font-size: 1.1em;
+  color: white;
+  margin-bottom: 4px;
+}
+
+#login{
+  border-top:1px solid #ccc;
+  margin-left:105px;
+  width:410px;
+}
+
+#login h2{
+  font-family:georgia,serif;
+  margin-top:8px;
+}
+
+#login form{
+  background-color:#333;
+  padding:15px;
+  position:relative;
+}
+
+#login form:after{
+  content:".";
+  display:block;
+  clear:both;
+  height:0;
+  visibility:hidden;
+}
+
+
+#login form label {
+  color:white;
+  float:left;
+  clear:left;
+  width:90px;
+} 
+
+#login p {
+  color: white;
+  font-size: 1.1em;
+}
+
+#login form input, 
+#login form select {
+  width:190px;
+  float:left;
+  margin-bottom:10px;
+  margin-right:15px;
+}
+
+#login form input[type="submit"]{
+  width:80px;
+  margin:0;
+  float:none;
+  clear:both;
+  display:block;
+  margin:10px auto;
+}
+
+#login form a{
+  float:left;
+  width:60px;
+  font-size:.9em;
+  margin-top:-30px;
+}
+
+#forgotForm form label {
+    color: white;
+}
+
+/*APP*/
+#superCenteredText {
+  text-align: center;
+}
+#urlInput {
+  width:600px;
+  background:red;
+  padding:10px;
+  display: none;
+}
+
+#urlInput label {
+  width:70px;
+  font-size:1.2em;
+  color:white;
+}
+
+#urlInput label span {
+  font-family:georgia,serif;
+}
+
+input.url {
+  width:496px;
+  height:16px;
+  margin-left:85px;
+  font-size:1.2em; 
+  padding:3px
+}
+
+h2 {
+  margin:14px 10px;
+  font-size:1.2em;
+  color:white;
+  font-weight:normal;
+}
+
+#tabbedModes{
+  width:620px;
+}
+
+#tabs {
+  list-style:none;
+  clear:right;
+  margin:0;
+  padding:0;
+}
+
+#tabs li {
+  display:block;
+  width:200px;
+  margin-right:10px;
+  float:left;
+  font-size:1.2em;
+  color:white;
+  background:#ccc;
+  border-top:5px solid #ddd;
+}
+#tabs #randomTab {
+  margin-right:0px;
+}
+
+#tabs a{
+  display:block;
+  width:180px;
+  height:100%;
+  padding:10px;
+  color:inherit;
+}
+
+#tabs .selected {
+  color:black;
+  background:white;
+  border-top:5px solid red;
+}
+
+.tabContent {
+  width:590px;
+  clear:both;
+  padding:15px;
+  background:white;
+  display:none;
+}
+
+.tabContent.selected{
+  display:block;
+}
+
+.tabContent  p {
+  border-top:1px solid #aaa;
+  padding-top:5px;
+}
+
+.tabContent span {
+  margin-right:70px;
+  font-family:georgia,"times new roman",serif;
+  font-size:1.1em;
+  color:red;
+}
+
+#namespace {
+  font-family: helvetica, Arial, sans-serif;
+  font-size:1em;
+  font-weight:bold;
+  line-height:1.8em;
+  color: black;
+  margin: 0;
+} 
+
+fieldset#auto,
+fieldset#keywords {
+  margin-left:74px;
+  border:none;
+}
+
+#auto label,
+#keywords label {
+  display:block;
+  font-size:1.3em;
+  font-weight:bold;
+  line-height:1.8em;
+}
+
+#keywords input{
+  width:130px;
+}
+
+input[type="button"],
+input[type="submit"],
+.submitBtn {
+  font-family:inherit;
+  border:none;
+  color:white;
+  background:red;
+  padding:5px 3px 3px;
+  margin-right:5px;
+  width:auto;
+}
+
+.submitBtn {
+  margin-left:84px;
+}
+
+#response1,
+#response2,
+#response3 {
+  width:475px;
+  height:20px;
+  margin-left:84px;
+  padding:15px;
+  background:#ddd; 
+  border:1px solid #ccc;
+  font-size:1.5em;
+  color:red;    
+}
+
+/* ADMIN */
+#search {
+  padding:10px 0;
+  text-align:right;
+  margin-bottom:0px;
+  background:#e0e0e0;
+}
+
+#search-spinner {
+  display:none;
+  vertical-align:middle;
+  width: 20px;
+  height: 20px;
+}
+
+#searchForm {
+  margin-right:10px;
+  margin-bottom:0;
+}
+
+#searchForm input{
+  vertical-align:middle;
+}
+
+#searchForm #clearBtn{
+ display:none;
+}
+
+#searchTerm {
+  width:144px;
+  padding: 3px;
+}
+
+#shortyList {
+  border-collapse:collapse;
+  min-height:400px;  
+  width:620px;
+}
+
+#shortyList tr.oddrow td{
+  background:#f3f3f3;
+}
+
+#shortyList tr.evenrow td{
+  background:#e0e0e0;
+}
+
+#shortyList th{
+  padding:10px;
+  border-top:5px solid white;
+  color:white;
+  font-size:1.2em;
+  font-weight:normal;
+  text-align:left;
+}
+
+#shortyList th.selected{
+  font-size:1.2em;
+  font-weight:bold;
+  border-color:red;
+  color:red;
+}
+
+#shortyList .sortarrow {
+  margin-left:5px;
+  font-size:.8em;
+}
+
+#shortyList td{
+  padding:3px 5px 3px 10px;
+  border-top:1px solid #aaa;
+  background:#efefef;
+}
+
+#shortyList .rowNum{
+  color:#666;
+  text-align:right;
+  width:20px;
+}
+
+#shortyList .date{
+  width:80px;
+}
+
+#shortyList .buttons{
+  width:110px;
+}
+
+#shortyList input.edit {
+  background:white;
+  color:black;
+  font-size:.9em;
+}
+
+#shortyList input.save {
+  background:red;
+  color:white;
+  font-size:.9em;
+  display:none;
+}
+
+#shortyList input.cancel {
+  background:black;
+  color:white;
+  font-size:.9em;
+  display:none;
+}
+
+#shortyList input.delete {
+  background:black;
+  color:white;
+  font-size:.9em;
+}
+
+#shortyList .editForm {
+  width:400px;
+  height:40px;
+  padding:10px;
+  background:#e9e9e9;
+  position:relative;
+  margin:0px 0;
+}
+
+#shortyList .searchBox {
+  width:450px;
+  padding: 3px;
+}
+
+.show {}
+.hide { display: none; }
+
+#searchList .searchButton {
+  background:red;
+  color:white;
+  font-size:.9em;
+}
+
+#shortyList .editForm input {
+  width:590px;
+}
+
+#adminOptions {
+  padding:0 10px 15px;
+  background:#fefefe;
+  border-top:1px solid #333;
+  font-size:.95em;
+}
+
+#shortyList .hostname {
+  display: none;
+}
+
+#shortyList .hostname.visible {
+  display: inline;
+}
+
+#adminOptions form{
+  border-top:1px solid #666;
+  padding-top:10px;
+  margin-top:20px;
+}
+
+#adminOptions input{
+  vertical-align:bottom;
+  margin-right:8px;
+}
+
+#pagingNav { 
+  list-style:none;
+  float:right;
+}
+
+#pagingNav li{
+  float:left;
+  margin-left:10px;
+}
+
+#pagingNav a {
+  color:red;
+  text-decoration:underline;
+}
+
+#urlLength {
+  float:right;
+}
+
+/* PREFS*/
+.pane {
+  background: white;
+  overflow:hidden;
+  padding:30px 15px;
+}
+
+#prefs {
+
+}
+
+#prefs form{
+  float:left;
+  width:288px;
+}
+
+#prefs fieldset{
+  border:0;
+  border-bottom:1px solid #AAA;
+  padding:0;
+  margin-bottom:10px;
+  overflow:hidden;
+}
+
+#prefs form label{
+  color: #333;
+  float:left;
+  clear:both;
+  border-top:1px solid #AAA;
+  padding:7px 3px 0;
+  width:278px;
+} 
+
+#prefs form input,
+#prefs form select{
+  width:165px;
+  float:right;
+  margin-bottom:7px;
+} 
+
+#prefs form select{
+  width:169px;
+}
+
+#prefs #changePassword{
+  float:right;
+}
+
+#prefs #changePassword label,
+#prefs #changePassword input{
+}
+
+#prefs #prefsBtn,
+#prefs #changePasswordButton {
+  float:right;
+  clear:both;
+  width:auto;
+  margin:0;
+}
+
+
+/* ABOUT / INSTALL */
+#about ,
+#install {
+  padding: 15px 15px 15px 25px;
+  position: relative;
+  width: 415px;
+  margin: 43px 0 0 75px;
+  color:white;
+}
+
+#about h2 ,
+#install h2 {
+  font-size:1em;
+  font-weight:bold;
+  margin:0;
+  clear:left;
+}
+
+#about h2 span ,
+#install h2 span {
+  display:block;
+  font-weight:normal;
+}
+
+#about #credits, 
+#about #versionHistory {
+  margin-left:-5px;
+  margin-right:-5px;
+}
+
+#news dl, 
+#about dl ,
+#install dl {
+  float:left;
+  line-height:1.2em;
+  padding:0;
+}
+
+#news  dl p,
+#about dl p ,
+#install dl p {
+  margin-top:0;
+}
+
+#news  dl ul,
+#about dl ul ,
+#install dl ul {
+  line-height:1.5em;
+  margin:10px;
+}
+
+#news  dt,
+#news  dd,
+#about dt,
+#about dd,
+#install dd,
+#install dt  {
+  float:left;
+  display:inline;
+  clear:left;
+  margin:0 0 12px 0;
+  padding:5px 8px 0 8px;
+  border-top:1px solid #999;
+}
+
+#news dd, 
+#about dd ,
+#install dd {
+  clear:right;
+}
+
+#news dd p,
+#about dd p,
+#install dd p{
+  margin-top:0;
+  width:348px;
+}
+
+#about a ,
+#install a {
+  color: white !important;
+  text-decoration: underline !important;
+  font-weight:bold;
+}
+
+#about .inputBox{
+    padding: 3px;
+}
+
+#userAccount label{
+  float:left;
+  clear:left;
+  width:100px;
+}
+
+#credits h3 {
+  font-size:1em;
+  font-weight:normal;
+  margin:0 20px 0 0;
+  float:left;
+  clear:left;
+  width:180px;
+}
+
+#credits {
+  float:left;
+  line-height:1.2em;
+  padding:0;
+  margin:20px 0;
+  border-bottom:1px solid #999;
+  
+}
+
+#credits li  {
+  float:left;
+  display:inline;
+  clear:left;
+  margin:0 0 12px 0;
+  padding:5px 5px 0 5px;
+  border-top:1px solid #999;
+}
+
+#credits li p {
+  clear:right;
+  float:right;
+  margin:0;
+}
+
+
+#credits .name,
+#credits .site {
+  width:160px;
+}
+
+.feedback {
+  text-align:center;
+}
+
+#donationBox {
+  width:195px;
+  margin:20px auto;
+  background:#ccc;
+  padding:10px 10px 10px 40px;
+  font-size:1.2em;
+  color:white;
+}
+
+#donationBox a{
+  color:red !important;
+}
+
+/* DONATE */
+
+#donate {
+  margin-left:105px;
+  margin-top:45px;
+  width:410px;
+}
+
+#donate p {
+  color: #D4D4D4;
+  width: 402px;
+  border-top: 1px solid #7A7A7A;
+  padding: 12px 4px 0 4px;
+  margin-bottom: 12px;
+  font-size: 1.25em;
+}
+
+#donate h2 {
+  color: #D4D4D4;
+  padding: 0px 0 20px 0px;
+  font-size: 1em;
+  text-align:center;
+}
+
+#thanks {
+  text-align:center;
+}
+
+#donate form{
+width: 410px;
+}
+
+#donateBtn {
+  display: block;
+  margin: 10px auto;
+}
+
+.white {
+    color: white !important;
+}
+
+.feedback {clear:left; }
+
+#install {
+  font-size: 12px !important;
+}

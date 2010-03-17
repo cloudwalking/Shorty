@@ -1,0 +1,7 @@
+Installing Shorty:
+
+1. Modify configuration.php with the correct database settings. You can create a new database or use an existing one.
+
+2. Upload all of the Shorty package to a subdirectory on your server. Make sure you get the .htaccess file up there.
+
+3. Run _install.php from a web browser.
